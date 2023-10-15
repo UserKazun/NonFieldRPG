@@ -6,7 +6,10 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public StageUIManager stageUI;
 
-    int currentStage = 1;
+    // 1 is enemy encount, 0 is enemy not encount
+    readonly int[] encountTable = { 1, 0, 1, 1, 0, 1 };
+
+    int currentStage = 0;
 
     void Start()
     {
@@ -16,8 +19,15 @@ public class NewBehaviourScript : MonoBehaviour
     public void OnNextButton()
     {
         currentStage++;
-        Debug.Log("進行度増加" + currentStage);
-
         stageUI.UpdateUI(currentStage);
+
+        if (encountTable.Length <= currentStage)
+        {
+            Debug.Log("Complete Quest!!");
+        }
+        else if (encountTable[currentStage] == 1)
+        {
+            Debug.Log("encount enemy");
+        }
     }
 }

@@ -9,6 +9,6 @@ public class StageUIManager : MonoBehaviour
 
     public void UpdateUI(int currentStage)
     {
-        stageText.text = string.Format("ステージ：{0}", currentStage);
+        stageText.text = string.Format("ステージ：{0}", currentStage + 1);
     }
 }
