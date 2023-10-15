@@ -11,7 +11,7 @@ public class StageUIManager : MonoBehaviour
 
     public void UpdateUI(int currentStage)
     {
-        stageText.text = string.Format("ステージ：{0}", currentStage + 1);
+        stageText.text = $"HP：{currentStage + 1}";
     }
 
     public void ShowHideSwitchButton(bool isShow)

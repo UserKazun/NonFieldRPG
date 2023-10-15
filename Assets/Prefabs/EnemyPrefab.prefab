@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterName: Oulu Zia
-  hp: 10
+  hp: 100
   at: 2

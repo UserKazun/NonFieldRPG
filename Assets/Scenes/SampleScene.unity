@@ -445,7 +445,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 201467534}
-        m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
         m_MethodName: OnNextButton
         m_Mode: 1
         m_Arguments:

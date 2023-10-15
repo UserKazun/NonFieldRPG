@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class QuestManager : MonoBehaviour
 {
     public StageUIManager stageUI;
     public GameObject enemyPrefab;
@@ -19,8 +19,6 @@ public class NewBehaviourScript : MonoBehaviour
         stageUI.UpdateUI(_currentStage);
     }
     
-    [UsedImplicitly]
-    // This func is Called from the NextButton object.
     public void OnNextButton()
     {
         _currentStage++;
@@ -42,5 +40,10 @@ public class NewBehaviourScript : MonoBehaviour
         var enemyObj = Instantiate(enemyPrefab);
         var enemy = enemyObj.GetComponent<EnemyManager>();
         battleManager.Setup(enemy);
+    }
+
+    public void EndBattle()
+    {
+        stageUI.ShowHideSwitchButton(true);
     }
 }
