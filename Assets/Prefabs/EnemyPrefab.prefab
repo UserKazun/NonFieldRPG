@@ -173,5 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553f265533a1f4c94bf562dd300fe252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  at: 0
+  monsterName: Oulu Zia
+  hp: 10
+  at: 2

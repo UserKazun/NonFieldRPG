@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
     public StageUIManager stageUI;
     public GameObject enemyPrefab;
+    public BattleManager battleManager;
 
     // 1 is enemy encounter, 0 is enemy not encounter
     private readonly int[] _encounterTable = { 1, 0, 1, 1, 0, 1 };
@@ -16,7 +18,9 @@ public class NewBehaviourScript : MonoBehaviour
     {
         stageUI.UpdateUI(_currentStage);
     }
-
+    
+    [UsedImplicitly]
+    // This func is Called from the NextButton object.
     public void OnNextButton()
     {
         _currentStage++;
@@ -35,6 +39,8 @@ public class NewBehaviourScript : MonoBehaviour
     private void EncounterEnemy()
     {
         stageUI.ShowHideSwitchButton(false);
-        Instantiate(enemyPrefab);
+        var enemyObj = Instantiate(enemyPrefab);
+        var enemy = enemyObj.GetComponent<EnemyManager>();
+        battleManager.Setup(enemy);
     }
 }

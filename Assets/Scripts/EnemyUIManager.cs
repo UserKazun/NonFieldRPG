@@ -10,13 +10,12 @@ public class EnemyUIManager : MonoBehaviour
 
     public void SetupUI(EnemyManager enemy)
     {
-        var enemyHp = enemy.hp;
-        hpText.text = $"HP：{enemyHp}";
+        hpText.text = $"HP：{enemy.hp}";
+        nameText.text = enemy.monsterName;
     }
 
     public void UpdateUI(EnemyManager enemy)
     {
-        var enemyHp = enemy.hp;
-        hpText.text = $"HP：{enemyHp}";
+        hpText.text = $"HP：{enemy.hp}";
     }
 }
