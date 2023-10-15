@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public StageUIManager stageUI;
+    public GameObject enemyPrefab;
 
     // 1 is enemy encount, 0 is enemy not encount
     readonly int[] encountTable = { 1, 0, 1, 1, 0, 1 };
@@ -27,7 +28,13 @@ public class NewBehaviourScript : MonoBehaviour
         }
         else if (encountTable[currentStage] == 1)
         {
-            Debug.Log("encount enemy");
+            EncountEnemy();
         }
+    }
+
+    void EncountEnemy()
+    {
+        stageUI.ShowHideSwitchButton(false);
+        Instantiate(enemyPrefab);
     }
 }
