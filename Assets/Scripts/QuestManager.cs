@@ -7,32 +7,32 @@ public class NewBehaviourScript : MonoBehaviour
     public StageUIManager stageUI;
     public GameObject enemyPrefab;
 
-    // 1 is enemy encount, 0 is enemy not encount
-    readonly int[] encountTable = { 1, 0, 1, 1, 0, 1 };
+    // 1 is enemy encounter, 0 is enemy not encounter
+    private readonly int[] _encounterTable = { 1, 0, 1, 1, 0, 1 };
 
-    int currentStage = 0;
+    private int _currentStage;
 
-    void Start()
+    private void Start()
     {
-        stageUI.UpdateUI(currentStage);
+        stageUI.UpdateUI(_currentStage);
     }
 
     public void OnNextButton()
     {
-        currentStage++;
-        stageUI.UpdateUI(currentStage);
+        _currentStage++;
+        stageUI.UpdateUI(_currentStage);
 
-        if (encountTable.Length <= currentStage)
+        if (_encounterTable.Length <= _currentStage)
         {
             Debug.Log("Complete Quest!!");
         }
-        else if (encountTable[currentStage] == 1)
+        else if (_encounterTable[_currentStage] == 1)
         {
-            EncountEnemy();
+            EncounterEnemy();
         }
     }
 
-    void EncountEnemy()
+    private void EncounterEnemy()
     {
         stageUI.ShowHideSwitchButton(false);
         Instantiate(enemyPrefab);

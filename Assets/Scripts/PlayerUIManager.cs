@@ -7,9 +7,16 @@ public class PlayerUIManager : MonoBehaviour
 {
     public Text hpText;
     public Text atText;
-
-    public void UpdateUI()
+    
+    public void SetupUI(PlayerManager player)
     {
-        hpText.text = string.Format("HP：{0}", 100);
+        hpText.text = $"HP：{player.hp}";
+        atText.text = $"HP：{player.at}";
+    }
+
+    public void UpdateUI(PlayerManager player)
+    {
+        var playerHp = player.hp;
+        hpText.text = $"HP：{playerHp}";
     }
 }
