@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public StageUIManager stageUI;
     public GameObject enemyPrefab;
+    
     public BattleManager battleManager;
+    public StageUIManager stageUI;
+    public SceneTransitionManager sceneManager;
+
 
     // 1 is enemy encounter, 0 is enemy not encounter
     private readonly int[] _encounterTable = { 1, 0, 1, 1, 0, 1 };
@@ -26,7 +29,7 @@ public class QuestManager : MonoBehaviour
 
         if (_encounterTable.Length <= _currentStage)
         {
-            Debug.Log("Complete Quest!!");
+            QueryClear();
         }
         else if (_encounterTable[_currentStage] == 1)
         {
@@ -45,5 +48,10 @@ public class QuestManager : MonoBehaviour
     public void EndBattle()
     {
         stageUI.ShowHideSwitchButton(true);
+    }
+
+    private void QueryClear()
+    {
+        sceneManager.LoadTo("Town");
     }
 }
